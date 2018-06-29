@@ -53,6 +53,10 @@ SET SESSION TRANSACTION ISOLATION LEVEL serializable;
 start transaction;
 
 
+/* 查看正在被锁定的表 */
+show OPEN TABLES where In_use > 0;
+
+
 /* ====================  ==================== */
 
 /* 场景实验 - 验证语句 */
