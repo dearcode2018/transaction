@@ -1,0 +1,19 @@
+
+
+1) 基于外键的 one-to-one，可以描述为多对一，加unique="true"约束，
+
+使用 many-to-one，使用到 idCard.personId 字段，通过外键来维护关联关系.
+
+注意，这种方式，idCard的主键可以通过各种方式生成，这里的关键是其外键值是
+对应person.id值
+
+
+
+
+
+
+
+
+
+
+

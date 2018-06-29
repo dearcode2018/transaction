@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.hua.entity.Hilo" table="oid_hilo">
+		<id name="id" type="java.lang.Long">
+			<column name="id">
+				<comment>唯一标识符</comment>
+			</column>	
+			<generator class="hilo">
+				<param name="table">hi_value</param>
+				<param name="column">next_value</param>
+				<param name="min_lo">2</param>
+				<param name="max_lo">500</param>
+			</generator>
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="name">
+				<comment>名称</comment>
+			</column>			
+		</property>
+	</class>
+	
+
+
+
+
+
+
+
+
+
+
+
+</hibernate-mapping>

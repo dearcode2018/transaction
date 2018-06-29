@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+
+	<class name="com.hua.orm.entity.type.PersonCompositeUserType" table="person_composite_user_type">
+		<id name="id" type="java.lang.String">
+			<column name="id">
+				<comment>唯一标识符</comment>
+			</column>
+			<!-- 本地(数据库自身)生成方式 -->
+			<generator class="native" />
+		</id>
+		<!-- 实现 org.hibernate.usertype.CompositeUserType 接口 -->
+		<property name="name" type="com.hua.type.NameCompositeUserType">
+			<column name="firstname" length="32" not-null="false">
+				<!-- 列注释 -->
+				<comment>姓名-firstname</comment>
+			</column>
+			<column name="lastname" length="32" not-null="false">
+				<!-- 列注释 -->
+				<comment>姓名-lastname</comment>
+			</column>			
+		</property>
+		<property name="photoUrl" type="java.lang.String">
+			<column name="photoUrl" length="255" not-null="false">
+				<!-- 列注释 -->
+				<comment>证件照片url</comment>
+			</column>
+		</property>
+		<!-- 枚举值配置 -->
+		<property name="gender" column="gender">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">com.hua.constant.ext.Gender</param>
+				<!-- 12为java.sql.Types.VARCHAR常量值，即保存枚举的字面值到数据库。 如果不指定type参数，保存枚举的索引值(从0开始)到数据库 -->
+				<!-- 枚举字面值 -->
+				<param name="type">12</param>
+			</type>
+		</property>
+		<property name="nation" type="java.lang.String">
+			<column name="nation" length="32" not-null="false">
+				<!-- 列注释 -->
+				<comment>民族</comment>
+			</column>
+		</property>
+		<property name="birthday" type="java.util.Date">
+			<column name="birthday" not-null="false">
+				<!-- 列注释 -->
+				<comment>出生日期 yyyy-MM-dd</comment>
+			</column>
+		</property>
+		<property name="address" type="java.lang.String">
+			<column name="address" length="255" not-null="false">
+				<!-- 列注释 -->
+				<comment>住址</comment>
+			</column>
+		</property>	
+	</class>
+
+</hibernate-mapping>

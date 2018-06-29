@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.hua.entity.MappingCompositeKey02" table="MappingCompositeKey">
+		<composite-id name="key" class="com.hua.entity.CompositeKey">
+			<key-property name="name" column="name" type="java.lang.String" />
+			<key-property name="companyId" column="companyId" type="java.lang.String" />
+		</composite-id>
+		<property name="address" type="java.lang.String">
+			<column name="address">
+				<comment>地址</comment>
+			</column>			
+		</property>
+	</class>
+	
+
+
+
+
+
+
+
+
+
+
+
+</hibernate-mapping>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+
+	<class name="com.hua.orm.entity.type.ClobType" table="clob_type">
+		<id name="id" type="java.lang.String">
+			<column name="id">
+				<comment>唯一标识符</comment>
+			</column>
+			<!-- 本地(数据库自身)生成方式 -->
+			<generator class="native" />
+		</id>
+		<property name="string" type="java.lang.String">
+			<column name="string" not-null="false">
+				<!-- 列注释 -->
+				<comment>string 类型</comment>
+			</column>
+		</property>
+		<property name="clob" type="java.sql.Clob">
+			<column name="_clob" length="64" not-null="false">
+				<!-- 列注释 -->
+				<comment>java.sql.Clob 类型</comment>
+			</column>
+		</property>
+
+	</class>
+
+</hibernate-mapping>

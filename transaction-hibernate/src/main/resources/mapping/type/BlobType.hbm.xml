@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+
+	<class name="com.hua.orm.entity.type.BlobType" table="blob_type">
+		<id name="id" type="java.lang.String">
+			<column name="id">
+				<comment>唯一标识符</comment>
+			</column>
+			<!-- 本地(数据库自身)生成方式 -->
+			<generator class="native" />
+		</id>
+		<property name="array">
+			<column name="array" not-null="false">
+				<!-- 列注释 -->
+				<comment>Byte[] 类型</comment>
+			</column>
+		</property>
+		<property name="blob" type="java.sql.Blob">
+			<column name="_blob" not-null="false">
+				<!-- 列注释 -->
+				<comment>java.sql.Blob 类型</comment>
+			</column>
+		</property>		
+		
+
+	</class>
+
+</hibernate-mapping>

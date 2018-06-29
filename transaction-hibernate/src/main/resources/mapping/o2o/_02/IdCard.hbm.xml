@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.hua.orm.entity.o2o.IdCard" table="idCard">
+		<id name="id" type="java.lang.String">
+			<column name="id">
+				<comment>唯一标识符</comment>
+			</column>
+			<!-- 本地(数据库自身)生成方式 -->
+			<generator class="native" />					
+		</id>
+		<property name="title" type="java.lang.String">
+			<column name="title" length="32" not-null="false">
+				<!-- 列注释 -->
+				<comment>身份证标题, 例如 : 中华人民共和国 - 居民身份证</comment>
+			</column>
+		</property>
+		<property name="cardNo" type="java.lang.String">
+			<column name="cardNo" length="64" not-null="false">
+				<!-- 列注释 -->
+				<comment>身份证号</comment>
+			</column>
+		</property>
+		<property name="issuingAuthority" type="java.lang.String">
+			<column name="issuingAuthority" length="32" not-null="false">
+				<!-- 列注释 -->
+				<comment>签发机关 (Xx市公安局)</comment>
+			</column>
+		</property>
+		<property name="effectiveDate" type="java.util.Date">
+			<column name="effectiveDate" not-null="false">
+				<!-- 列注释 -->
+				<comment>生效日期 yyyy-MM-dd</comment>
+			</column>
+		</property>		
+		<property name="expiryDate" type="java.util.Date">
+			<column name="expiryDate" not-null="false">
+				<!-- 列注释 -->
+				<comment>失效日期 yyyy-MM-d</comment>
+			</column>
+		</property>
+		<!-- 使用外键的方式，相当于many方，设置unique="true" 约束为唯一 变成 one 方 -->
+		<many-to-one name="person" class="com.hua.orm.entity.o2o.Person" 
+			unique="true" column="personId">
+		</many-to-one>	</class>
+	
+</hibernate-mapping>
