@@ -56,7 +56,13 @@ start transaction;
 /* 查看正在被锁定的表 */
 show OPEN TABLES where In_use > 0;
 
+/* 这样执行删除，报  You can't specify target table 'custom' for update in FROM clause
+需要获取排他锁才可以删除
+ */
+delete from custom where id in (select id from custom);
 
+/* select id for UPDATE 从当前要删除的表中获取排他锁 */
+delete from custom where id in (select id for UPDATE );
 /* ====================  ==================== */
 
 /* 场景实验 - 验证语句 */

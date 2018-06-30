@@ -193,8 +193,8 @@ public class IsolationService
 		System.out.println(JacksonUtil.writeAsString(entity));
 		
 		/*
-		 * 在同一个事务中，事务隔离级别为 可重复读，多次读取同一条数据的结果
-		 * 一定保持相同，不管是否有其他事务对这条数据进行了任何变更.
+		 * 在同一事务中，事务隔离级别为 可重复读，多次读取同一条数据的结果
+		 * 一定保持相同，其他事务对这条数据的变更不可见.
 		 */
 		
 		System.out.println("其他事务变更该条数据之后");
