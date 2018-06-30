@@ -36,7 +36,7 @@ public class Custom extends BaseEntity
 	private String address;
 	
 	/* 客户状态 (0-无效, 1-未激活, 2-正常) */
-	private CustomStatus status = CustomStatus.INVALIDE;
+	private Integer status;
 	
 	// one to many
 	/* 客户的所有订单 */
@@ -93,7 +93,7 @@ public class Custom extends BaseEntity
 	/**
 	 * @return the status
 	 */
-	public CustomStatus getStatus()
+	public Integer getStatus()
 	{
 		return status;
 	}
@@ -101,7 +101,7 @@ public class Custom extends BaseEntity
 	/**
 	 * @param status the status to set
 	 */
-	public void setStatus(CustomStatus status)
+	public void setStatus(Integer status)
 	{
 		this.status = status;
 	}

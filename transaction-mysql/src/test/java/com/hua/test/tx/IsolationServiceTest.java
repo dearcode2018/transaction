@@ -1,6 +1,6 @@
 /**
  * 描述: 
- * TransactionServiceTest.java
+ * IsolationServiceTest.java
  * 
  * @author qye.zheng
  *  version 1.0
@@ -27,11 +27,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.hua.constant.ext.CustomStatus;
 import com.hua.orm.entity.m2o.Custom;
-import com.hua.service.TransactionService;
+import com.hua.service.IsolationService;
 import com.hua.test.BaseTest;
 
 //import org.springframework.test.context.transaction.TransactionConfiguration;
@@ -40,7 +39,7 @@ import com.hua.test.BaseTest;
  * 描述: 
  * 
  * @author qye.zheng
- * TransactionServiceTest
+ * IsolationServiceTest
  */
 /*
  * 
@@ -64,10 +63,10 @@ import com.hua.test.BaseTest;
  *  
  *  */
 // 使用事务注解 不能声明为final类型
-public class TransactionServiceTest extends BaseTest {
+public class IsolationServiceTest extends BaseTest {
 
 	@Resource
-	private TransactionService transactionService;
+	private IsolationService isolationService;
 	
 	/**
 	 * 事务注解
@@ -121,24 +120,20 @@ public class TransactionServiceTest extends BaseTest {
 	
 	/**
 	 * 
-	 * @description 
-	 * @author qianye.zheng
+	 * 描述: 
+	 * @author qye.zheng
+	 * 
 	 */
 	@Test
-	public void testTransactionService() {
+	public void testReadUncommitted() {
 		try {
-			Custom entity = new Custom();
-			entity.setName("manualTransaction");
-			entity.setAddress("广州市天河东路112号");
-			entity.setBalance(10.34);
-			entity.setStatus(CustomStatus.NORMAL.getValue());
 			
-			transactionService.manualTransaction(entity);
 			
 		} catch (Exception e) {
-			log.error("testTransactionService =====> ", e);
+			log.error("testReadUncommitted =====> ", e);
 		}
 	}
+	
 	
 	/**
 	 * 
@@ -146,9 +141,58 @@ public class TransactionServiceTest extends BaseTest {
 	 * @author qye.zheng
 	 * 
 	 */
-	//@Transactional(transactionManager = "transactionManager")
-	//@Commit
-	//@Rollback 该注释无需显式声明，没有@Commit时，默认使用该注解.
+	@Test
+	public void testReadCommitted() {
+		try {
+			
+			
+		} catch (Exception e) {
+			log.error("testReadCommitted =====> ", e);
+		}
+	}
+	
+	
+	/**
+	 * 
+	 * 描述: 
+	 * @author qye.zheng
+	 * 
+	 */
+	@Test
+	public void testRepeatableRead() {
+		try {
+			
+		 isolationService.repeatableRead("5");
+		 
+		} catch (Exception e) {
+			log.error("testRepeatableRead =====> ", e);
+		}
+	}
+	
+	
+	/**
+	 * 
+	 * 描述: 
+	 * @author qye.zheng
+	 * 
+	 */
+	@Test
+	public void testSerializable() {
+		try {
+			
+			
+		} catch (Exception e) {
+			log.error("testSerializable =====> ", e);
+		}
+	}
+	
+	
+	/**
+	 * 
+	 * 描述: 
+	 * @author qye.zheng
+	 * 
+	 */
 	@Test
 	public void test() {
 		try {

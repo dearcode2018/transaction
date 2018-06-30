@@ -15,7 +15,7 @@
 		<property name="dataSource" ref="dataSource" />
 		<!-- 提交失败则回滚 -->
 		<property name="rollbackOnCommitFailure" value="true" />
-		<property name="defaultTimeout" value="20" />
+<!-- 		<property name="defaultTimeout" value="20" /> -->
 	</bean>
 	
 	<!-- 事务通知 (MySql) -->

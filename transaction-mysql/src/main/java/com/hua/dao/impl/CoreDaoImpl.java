@@ -10,6 +10,7 @@ package com.hua.dao.impl;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
 import com.hua.dao.CoreDao;
@@ -214,9 +215,9 @@ public class CoreDaoImpl<T> extends JdbcDaoSupport implements CoreDao<T> {
 	 * @author qye.zheng
 	 */
 	@Override
-	public T get(String sql)
+	public T get(String sql, final Object[] params, final ResultSetExtractor<T> extractor)
 	{
-		return null;
+		return getJdbcTemplate().query(sql, params, extractor);
 	}
 
 	/**

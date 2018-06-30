@@ -69,7 +69,7 @@ public class TransactionService
 		//transactionDefinition.setTimeout(-1);
 		
 		// 2.获取事务状态 (开启事务)
-		final TransactionStatus transactionStatus = transactionManager.getTransaction(transactionDefinition);;
+		final TransactionStatus transactionStatus = transactionManager.getTransaction(transactionDefinition);
 		/*
 		 * Propagation.REQUIRED
 		 * @Transactional 注解的默认传播方式
@@ -83,7 +83,7 @@ public class TransactionService
 		params[0] = entity.getName();
 		params[1] = entity.getAddress();
 		params[2] = entity.getBalance();
-		params[3] = entity.getStatus().getValue();
+		params[3] = entity.getStatus();
 		
 		String sql = "insert into custom (name, address, balance, status) " +
 				"values (?, ?, ?, ?)";

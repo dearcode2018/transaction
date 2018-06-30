@@ -10,6 +10,7 @@ package com.hua.dao;
 import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
 
 /**
  * 描述: 
@@ -171,10 +172,10 @@ public interface CoreDao<T> {
 	 * 描述: 获取单个对象 - 无动态参数
 	 * @author qye.zheng
 	 * @param sql
-	 * @param id
+	 * @param params
 	 * @return
 	 */
-	public T get(final String sql);
+	public T get(final String sql, final Object[] params, final ResultSetExtractor<T> extractor);
 	
 	/**
 	 * 

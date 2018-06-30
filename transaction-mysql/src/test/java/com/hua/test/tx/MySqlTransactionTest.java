@@ -158,7 +158,7 @@ public class MySqlTransactionTest extends BaseTest {
 			entity.setName("赵备A");
 			entity.setAddress("广东省广州市越秀区清水路17号");
 			entity.setBalance(10.34);
-			entity.setStatus(CustomStatus.NORMAL);
+			entity.setStatus(CustomStatus.NORMAL.getValue());
 			
 			mySqlTransaction.transactionA(entity);
 			
@@ -180,7 +180,7 @@ public class MySqlTransactionTest extends BaseTest {
 			entity.setName("赵备B");
 			entity.setAddress("广东省广州市越秀区清水路17号");
 			entity.setBalance(10.34);
-			entity.setStatus(CustomStatus.NORMAL);
+			entity.setStatus(CustomStatus.NORMAL.getValue());
 			
 			mySqlTransaction.transactionB(entity);
 			
@@ -217,7 +217,7 @@ public class MySqlTransactionTest extends BaseTest {
 			entity.setName("赵备WaitTimeOut");
 			entity.setAddress("广东省广州市越秀区清水路17号");
 			entity.setBalance(10.34);
-			entity.setStatus(CustomStatus.NORMAL);
+			entity.setStatus(CustomStatus.NORMAL.getValue());
 			Integer timeout = 20;
 			
 			mySqlTransaction.waitTimeout(entity, timeout);
@@ -240,7 +240,7 @@ public class MySqlTransactionTest extends BaseTest {
 			entity.setName("赵备WaitTimeOut");
 			entity.setAddress("广东省广州市越秀区清水路17号");
 			entity.setBalance(10.34);
-			entity.setStatus(CustomStatus.NORMAL);
+			entity.setStatus(CustomStatus.NORMAL.getValue());
 			Integer timeout = 20;
 			
 			mySqlTransaction.waitTimeout(entity, timeout);
@@ -262,7 +262,7 @@ public class MySqlTransactionTest extends BaseTest {
 			entity.setName("insertUnCommit");
 			entity.setAddress("广州市天河东路112号");
 			entity.setBalance(10.34);
-			entity.setStatus(CustomStatus.NORMAL);
+			entity.setStatus(CustomStatus.NORMAL.getValue());
 			
 			mySqlTransaction.insertStatement(entity);
 			
@@ -284,7 +284,7 @@ public class MySqlTransactionTest extends BaseTest {
 			entity.setName("赵备A");
 			entity.setAddress("广东省广州市越秀区清水路17号");
 			entity.setBalance(10.34);
-			entity.setStatus(CustomStatus.NORMAL);
+			entity.setStatus(CustomStatus.NORMAL.getValue());
 			
 			mySqlTransaction.updateStatement(entity);
 			
@@ -305,7 +305,7 @@ public class MySqlTransactionTest extends BaseTest {
 			entity.setName("manualTransaction");
 			entity.setAddress("广州市天河东路112号");
 			entity.setBalance(10.34);
-			entity.setStatus(CustomStatus.NORMAL);
+			entity.setStatus(CustomStatus.NORMAL.getValue());
 			
 			mySqlTransaction.insertStatement(entity);
 		} catch (Exception e) {
@@ -325,7 +325,7 @@ public class MySqlTransactionTest extends BaseTest {
 			entity.setName("manualTransaction");
 			entity.setAddress("广州市天河东路112号");
 			entity.setBalance(10.34);
-			entity.setStatus(CustomStatus.NORMAL);
+			entity.setStatus(CustomStatus.NORMAL.getValue());
 			
 			
 		} catch (Exception e) {
